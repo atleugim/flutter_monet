@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.atleugim.flutter_monet">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
    <application
-        android:label="flutter_monet"
-        android:name="${applicationName}"
+        android:label="Flutter Monet"
+        android:name=".CustomApplication"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

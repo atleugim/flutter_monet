@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_monet/src/home.dart';
 
 class FlutterMonet extends StatelessWidget {
   const FlutterMonet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: SizedBox(
-            child: Text('Hello World'),
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: Home(),
     );
   }
 }

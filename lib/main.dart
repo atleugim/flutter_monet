@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_monet/src/index.dart';
 
-void main() => runApp(const FlutterMonet());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const FlutterMonet());
+}
