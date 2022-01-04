@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_monet/src/toast.dart';
 import 'package:monet/monet.dart';
 
 class Home extends StatefulWidget {
@@ -27,7 +28,10 @@ class _HomeState extends State<Home> {
 
   Future<void> _initMonet() async {
     _monet = await MonetProvider.newInstance();
-    _monet!.addListener(() => setState(() {}));
+    _monet!.addListener(() {
+      Toasts.show('Monet colors changed');
+      setState(() {});
+    });
     setState(() {});
   }
 
@@ -41,52 +45,54 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-          children: _monet == null
-              ? [
-                  const Expanded(
-                    child: Center(
-                      child: Text(
-                        "Monet isn't ready yet.",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                        ),
-                        textAlign: TextAlign.center,
+        children: _monet == null
+            ? [
+                const Expanded(
+                  child: Center(
+                    child: Text(
+                      "Monet isn't ready yet.",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                ]
-              : [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(20.0),
-                      color: palettes.first.shade500,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Flutter Monet Theme Engine',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                        ),
-                        textAlign: TextAlign.center,
+                ),
+              ]
+            : [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    color: palettes.first.shade500,
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Flutter Monet\nTheme Engine',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 35.0,
+                        fontWeight: FontWeight.bold,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(20.0),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Material You's monet theme engine from Android 12 now on Flutter",
-                        style: TextStyle(
-                          color: palettes.first.shade300,
-                          fontSize: 20.0,
-                        ),
-                        textAlign: TextAlign.center,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Material You's monet theme engine from Android 12 now on Flutter",
+                      style: TextStyle(
+                        color: palettes.first.shade300,
+                        fontSize: 20.0,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                  )
-                ]),
+                  ),
+                )
+              ],
+      ),
     );
   }
 }

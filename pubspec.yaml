@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  fluttertoast: ^8.0.8
   monet: ^0.1.0
 
 dev_dependencies:
